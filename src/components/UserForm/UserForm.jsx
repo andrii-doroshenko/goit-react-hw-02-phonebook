@@ -1,8 +1,13 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import CSS from './UserForm.module.css';
 
 class UserForm extends Component {
+  static propTypes = {
+    onAddContact: PropTypes.func.isRequired,
+  };
+
   state = {
     name: '',
     number: '',

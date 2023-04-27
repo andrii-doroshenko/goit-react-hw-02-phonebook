@@ -1,4 +1,5 @@
 import CSS from './Contacts.module.css';
+import PropTypes from 'prop-types';
 
 const Contacts = ({ filteredContacts, onDeleteContact }) => {
   return (
@@ -27,3 +28,14 @@ const Contacts = ({ filteredContacts, onDeleteContact }) => {
 };
 
 export default Contacts;
+
+Contacts.propTypes = {
+  filteredContacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onDeleteContact: PropTypes.func.isRequired,
+};
