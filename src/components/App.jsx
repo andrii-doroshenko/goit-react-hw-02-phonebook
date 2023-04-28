@@ -59,7 +59,10 @@ class App extends Component {
           <h1>Phonebook</h1>
           <UserForm onAddContact={this.handleAddContact}></UserForm>
           <h2>Contacts</h2>
-          <Filter onFilterChange={this.handleFilterChange}></Filter>
+          <Filter
+            value={this.state.filter}
+            onFilterChange={this.handleFilterChange}
+          ></Filter>
           <Contacts
             filterId={this.getElId}
             onFilterChange={this.handleFilterChange}

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import CSS from './Filter.module.css';
 
-const Filter = ({ onFilterChange }) => {
+const Filter = ({ value, onFilterChange }) => {
   const ID = nanoid(5);
 
   return (
@@ -15,12 +15,14 @@ const Filter = ({ onFilterChange }) => {
         id={ID}
         className={CSS.filterInput}
         onChange={onFilterChange}
+        value={value}
       />
     </div>
   );
 };
 
 Filter.propTypes = {
+  value: PropTypes.string.isRequired,
   onFilterChange: PropTypes.func.isRequired,
 };
 
