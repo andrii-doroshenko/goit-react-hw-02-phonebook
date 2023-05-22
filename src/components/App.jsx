@@ -16,6 +16,14 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+
   getElId = () => nanoid(5);
 
   handleAddContact = (name, number) => {
@@ -58,17 +66,20 @@ class App extends Component {
         <Section>
           <h1>Phonebook</h1>
           <UserForm onAddContact={this.handleAddContact}></UserForm>
+
           <h2>Contacts</h2>
           <Filter
-            value={this.state.filter}
+            value={filter}
             onFilterChange={this.handleFilterChange}
           ></Filter>
-          <Contacts
-            filterId={this.getElId}
-            onFilterChange={this.handleFilterChange}
-            filteredContacts={filteredContacts}
-            onDeleteContact={this.handleDeleteContact}
-          ></Contacts>
+
+          {contacts.length > 0 && (
+            <Contacts
+              filterId={this.getElId}
+              filteredContacts={filteredContacts}
+              onDeleteContact={this.handleDeleteContact}
+            ></Contacts>
+          )}
         </Section>
       </>
     );

@@ -1,4 +1,5 @@
 import CSS from './Contacts.module.css';
+import { ImCross, ImPhone } from 'react-icons/im';
 import PropTypes from 'prop-types';
 
 const Contacts = ({ filteredContacts, onDeleteContact }) => {
@@ -8,16 +9,15 @@ const Contacts = ({ filteredContacts, onDeleteContact }) => {
         {filteredContacts.map(({ name, id, number }) => {
           return (
             <li className={CSS.contacts__item} key={name} id={id}>
-              <p>{name}:</p>
-              <p>
+              <p>name: {name}</p>
+              <p className={CSS.user__number}>
+                <ImPhone className={CSS.iconMoon} />
                 {number}
-                <button
+                <ImCross
                   type="button"
                   className={CSS.contacts__btn}
                   onClick={() => onDeleteContact(id)}
-                >
-                  Delete
-                </button>
+                ></ImCross>
               </p>
             </li>
           );

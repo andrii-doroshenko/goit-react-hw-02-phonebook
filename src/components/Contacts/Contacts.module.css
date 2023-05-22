@@ -13,5 +13,20 @@
 }
 
 .contacts__btn {
-  margin-left: 1em;
+  margin-left: auto;
+  color: gray;
+  cursor: pointer;
+}
+
+.contacts__btn:hover,
+.contacts__btn:focus {
+  color: black;
+}
+
+.user__number {
+  display: flex;
+}
+
+.iconMoon {
+  margin-right: 1em;
 }
